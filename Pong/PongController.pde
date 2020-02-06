@@ -1,8 +1,12 @@
+import processing.sound.*;
+
 Ball ball;
 StickController stickController;
 GameLog gameLog;
 boolean startGame = false;
 boolean pause = false;
+SoundFile soundStick;
+SoundFile soundGol;
 
 public void settings() {
     size(500,500);
@@ -23,6 +27,8 @@ public void setup() {
     ball = new Ball(width/2,height/2,20,calculateSpeed(),calculateSpeed());
     stickController = new StickController((int)(width*0.9),(int)(width*0.1),height/2,10,40);
     gameLog = new GameLog();
+    soundStick = new SoundFile(this, "Alesis-Sanctuary-QCard-Crotales-C6.wav");
+    soundGol = new SoundFile(this, "Alesis-Sanctuary-QCard-Loose-Bell-C5.wav");
 }
 
 public void draw() {
@@ -100,8 +106,10 @@ public void controlBallPosition(){
     if (ball.getPosX() > width || ball.getPosX() < 0){
         if (ball.getPosX() < width/2){
             gameLog.playerLeftGol();
+            thread("soundWithGol");
         } else {
             gameLog.playerRightGol();
+            thread("soundWithGol");
         }
         ball.setPosX(width/2);
         ball.setPosY(height/2);
@@ -124,12 +132,14 @@ public void controlStickShock(){
             && stickRight.getPosX() <= ball.getPosX() + ball.getDimension()/2
             && ball.getPosX() - ball.getDimension()/2 <= stickRight.getPosX() + stickRight.getStickWidth() ){
         ball.changeDirectionX();
+        thread("soundShock");
     } else if (ball.getSpeedX() < 0
             && stickLeft.getPosY() <= ball.getPosY() + ball.getDimension()/2
             && ball.getPosY() - ball.getDimension()/2 <= stickLeft.getPosY() + stickLeft.getStickHeight()
             && stickLeft.getPosX() <= ball.getPosX() + ball.getDimension()/2
             && ball.getPosX() - ball.getDimension()/2 <= stickLeft.getPosX() + stickLeft.getStickWidth() ){
         ball.changeDirectionX();
+        thread("soundShock");
     }
 }
 
@@ -178,3 +188,12 @@ public void keyReleased() {
         stickController.setDownRight(false);
     }
 }
+
+public void soundShock(){
+  soundStick.play(); 
+}
+
+public void soundWithGol(){
+  soundGol.play();
+}
+  
