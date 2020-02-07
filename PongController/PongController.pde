@@ -6,6 +6,7 @@ StickController stickController;
 GameLog gameLog;
 boolean startGame = false;
 boolean pause = false;
+boolean win = false;
 SoundFile soundStick;
 SoundFile soundGol;
 //GifMaker gif;
@@ -42,13 +43,17 @@ public void draw() {
         createScoreboard();
         paintLine();
         paintStick();
-        if (!pause) {
+        if (!pause && !win) {
             moveBall();
             controlBallPosition();
             moveStick();
             controlStickShock();
         } else {
-            paintPause();
+            if(pause){
+              paintPause();
+            } else {
+              paintWinner();
+            }
         }
     } else {
         startingScreen();
@@ -59,6 +64,17 @@ public void draw() {
 private void paintPause() {
     textSize(50);
     text("PAUSE",width*0.35f,height/2);
+}
+
+void paintWinner(){
+   textSize(50);
+   text("WINNER",width*0.32f,height*0.20f);
+   if(gameLog.getScorePlayerLeft() == gameLog.getMax()){
+       text("Left  player",width*0.28f,height*0.30f);
+   } else {
+       text("Right player",width*0.25f,height*0.30f);
+   }
+    text("E to end",width*0.32f,height*0.75f);
 }
 
 private void paintLine() {
@@ -76,7 +92,7 @@ public void paintBall(){
 
 public void startingScreen(){
     textSize(50);
-    text("Pong Game", width * 0.23f,height * 0.25f);
+    text("PONG GAME", width * 0.23f,height * 0.25f);
     paintBall();
     paintStick();
     moveStick();
@@ -110,12 +126,13 @@ public void moveBall(){
 public void controlBallPosition(){
     if (ball.getPosX() > width || ball.getPosX() < 0){
         if (ball.getPosX() < width/2){
-            gameLog.playerLeftGol();
-            thread("soundWithGol");
-        } else {
             gameLog.playerRightGol();
             thread("soundWithGol");
+        } else {
+            gameLog.playerLeftGol();
+            thread("soundWithGol");
         }
+        win = gameLog.isWinner();
         ball.setPosX(width/2);
         ball.setPosY(height/2);
         ball.setSpeed(
@@ -166,9 +183,10 @@ public void keyPressed() {
     if (startGame && (key == 'e' || key == 'E')){
         startGame = false;
         pause = false;
+        win = false; 
         setup();
     }
-    if (startGame && (key == 'p' || key == 'P')){
+    if (startGame && !win && (key == 'p' || key == 'P')){
         pause = !pause;
     }
     if (keyCode == UP) {

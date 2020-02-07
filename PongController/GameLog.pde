@@ -1,6 +1,7 @@
 public class GameLog {
     private int scorePlayerLeft;
     private int scorePlayerRight;
+    private final int max = 10;
 
     public GameLog() {
         scorePlayerLeft = 0;
@@ -21,5 +22,13 @@ public class GameLog {
 
     public int getScorePlayerRight() {
         return scorePlayerRight;
+    }
+    
+    public int getMax(){
+      return max;
+    }
+    
+    public boolean isWinner(){
+      return scorePlayerLeft == max || scorePlayerRight == max;
     }
 }
