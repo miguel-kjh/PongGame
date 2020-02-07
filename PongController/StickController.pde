@@ -34,7 +34,7 @@ public class StickController {
     }
 
     public void moveSticks(){
-        int amountPixels = 12;
+        int amountPixels = 13;
         if (upLeft){
             stickLeft.moveUp(amountPixels);
         }
