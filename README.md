@@ -29,7 +29,7 @@ Para esta práctica se ha desarrollado mediante processing el videojuego del pon
 ## Dependencias
 Para poder ejecutar y probar la práctica solamente se necesita el editor de processing y las siguientes dependencias:
 - Librería **sound** para poder reproducir sonidos.Su instalación se encuentra en la documentación de la práctica.
-- Librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](http://extrapixel.github.io/gif-animation/) se encuentra la forma de instalarla.
+- Librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
 
 ## Implementación
 Se ha modelado el diseño del juego siguiendo el patrón arquitectónico **MVC**, con la siguiente relación de clases:
