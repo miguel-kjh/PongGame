@@ -28,7 +28,7 @@ public class GameLog {
       return max;
     }
     
-    public boolean isWinner(){
+    public boolean hasWinner(){
       return scorePlayerLeft == max || scorePlayerRight == max;
     }
 }

@@ -15,7 +15,7 @@ public void settings() {
     size(500,500);
 }
 
-private float calculateSpeed(){
+public float calculateSpeed(){
     int direction;
     do {
         direction = round(random(-1,1));
@@ -61,12 +61,12 @@ public void draw() {
     //gif.addFrame();
 }
 
-private void paintPause() {
+public void paintPause() {
     textSize(50);
     text("PAUSE",width*0.35f,height/2);
 }
 
-void paintWinner(){
+public void paintWinner(){
    textSize(50);
    text("WINNER",width*0.32f,height*0.20f);
    if(gameLog.getScorePlayerLeft() == gameLog.getMax()){
@@ -77,7 +77,7 @@ void paintWinner(){
     text("E to end",width*0.32f,height*0.75f);
 }
 
-private void paintLine() {
+public void paintLine() {
     stroke(255);
     int diff = 30;
     for (int i = 0; i < height; i+=diff) {
@@ -132,7 +132,7 @@ public void controlBallPosition(){
             gameLog.playerLeftGol();
             thread("soundWithGol");
         }
-        win = gameLog.isWinner();
+        win = gameLog.hasWinner();
         ball.setPosX(width/2);
         ball.setPosY(height/2);
         ball.setSpeed(
