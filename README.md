@@ -16,7 +16,7 @@ Correo: miguel.medina108@alu.ulpgc.es
 6. [Bibliografía](#bibliografía)
 
 ## Introducción
-Para esta práctica se ha desarrollado mediante processing el videojuego del pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los objetivos y fundamentos del juego son los del pong clásico, no se a variado estos conceptos de su homólogo original.Es más para ser la interfaz más amena se ha implementado un menú con información útil para el usuario y varios eventos clásicos en un videojuego que son la posibilidad de pausar la ejecución y reanudarla, y la posibilidad de volver al menú borrando la partida.
+Para esta práctica se ha desarrollado mediante processing el videojuego del pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los objetivos y fundamentos del juego son los del pong clásico, no se a variado estos conceptos de su homólogo original, gana quien llege antes a los 10 puntos.Es más para ser la interfaz más amena se ha implementado un menú con información útil para el usuario y varios eventos clásicos en un videojuego que son la posibilidad de pausar la ejecución y reanudarla, y la posibilidad de volver al menú borrando la partida.
 
 ## Demostración
 <p align="center">
@@ -139,9 +139,10 @@ public void keyPressed() {
     if (startGame && (key == 'e' || key == 'E')){
         startGame = false;
         pause = false;
+        win = false; 
         setup();
     }
-    if (startGame && (key == 'p' || key == 'P')){
+    if (startGame && !win && (key == 'p' || key == 'P')){
         pause = !pause;
     }
     if (keyCode == UP) {
