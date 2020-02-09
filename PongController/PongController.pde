@@ -1,5 +1,5 @@
 import processing.sound.*;
-//import gifAnimation.*;
+import gifAnimation.*;
 
 Ball ball;
 StickController stickController;
@@ -9,7 +9,9 @@ boolean pause = false;
 boolean win = false;
 SoundFile soundStick;
 SoundFile soundGol;
-//GifMaker gif;
+/*int countFrame = 0;
+final int maxFrame = 5;
+GifMaker gif;*/
 
 public void settings() {
     size(500,500);
@@ -32,8 +34,8 @@ public void setup() {
     gameLog = new GameLog();
     soundStick = new SoundFile(this, "Alesis-Sanctuary-QCard-Crotales-C6.wav");
     soundGol = new SoundFile(this, "Alesis-Sanctuary-QCard-Loose-Bell-C5.wav");
-    //gif = new GifMaker(this,"animacion.gif");
-    //gif.setRepeat(0);
+    /*gif = new GifMaker(this,"animacion.gif");
+    gif.setRepeat(0);*/
 }
 
 public void draw() {
@@ -58,7 +60,11 @@ public void draw() {
     } else {
         startingScreen();
     }
-    //gif.addFrame();
+    /*if(countFrame == maxFrame){
+      gif.addFrame();
+      countFrame = 0;
+    }
+    countFrame++;*/
 }
 
 public void paintPause() {
