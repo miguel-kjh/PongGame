@@ -32,7 +32,7 @@ Asimismo, para ser la interfaz más amena se ha implementado un menú con inform
 ## Dependencias
 Para poder ejecutar y probar la práctica solamente se necesita clonar este repositorio y el editor de processing con las siguientes dependencias:
 - La librería **sound** para poder reproducir sonidos.Su instalación se encuentra en la documentación de la práctica.
-- La librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
+- La librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica, en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
 
 ## Implementación
 Se ha modelado el diseño del juego siguiendo el patrón arquitectónico **MVC**, con la siguiente relación de clases:
@@ -53,7 +53,7 @@ Donde la distribución de clase sería la siguiente:
     <dd>GameLog:el registros de goles de cada jugador.</dd>
   <dt>Controladores</dt>
     <dd>StickController: para gestionar el movimiento de las palas y la lógica del choque de la bola en ellas.</dd>
-    <dd>PongController: para gestionar los inputs del usuario y toda la lógica relacionada con el juego mediante las clases   anteriores o sus propios métodos</dd>
+    <dd>PongController: para gestionar los inputs del usuario y toda la lógica relacionada con el juego mediante las clases   anteriores o sus propios métodos.</dd>
 </dl>
 
 Los **métodos y figuras** propias de processing que se han usado en el desarrollo son los siguentes: line, stroke, noStroke, ellipse, text, textSize, rect, thread, background y size.
