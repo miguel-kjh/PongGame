@@ -50,6 +50,7 @@ public void draw() {
             controlBallPosition();
             moveStick();
             controlStickShock();
+            speedUp();
         } else {
             if(pause){
               paintPause();
@@ -127,6 +128,18 @@ public void paintStick(){
 public void moveBall(){
     ball.moveX();
     ball.moveY();
+}
+
+public void speedUp(){
+  float upX = 5e-3f;
+  float upY = 5e-3f;
+  if(ball.getSpeedX() < 0){
+    upX = - upX;
+  }
+  if(ball.getSpeedY() < 0){
+    upY = - upY;
+  }
+  ball.setSpeed(ball.getSpeedX() + upX,ball.getSpeedY() + upY);
 }
 
 public void controlBallPosition(){

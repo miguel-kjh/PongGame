@@ -42,6 +42,10 @@ public class Ball {
     public float getSpeedX() {
         return speedX;
     }
+    
+    public float getSpeedY() {
+        return speedY;
+    }
 
     public void setSpeed(float speedX, float speedY) {
         this.speedX = speedX;
