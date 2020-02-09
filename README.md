@@ -16,7 +16,10 @@ Correo: miguel.medina108@alu.ulpgc.es
 6. [Bibliografía](#bibliografía)
 
 ## Introducción
-Para esta práctica se ha desarrollado mediante processing el videojuego del pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los objetivos y fundamentos del juego son los del pong clásico, no se a variado estos conceptos de su homólogo original, gana quien llege antes a los 10 puntos.Es más para ser la interfaz más amena se ha implementado un menú con información útil para el usuario y varios eventos clásicos en un videojuego que son la posibilidad de pausar la ejecución y reanudarla, y la posibilidad de volver al menú borrando la partida.
+Para esta práctica se ha desarrollado mediante processing el videojuego pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los fundamentos del juego no han variado de su homólogo original, gana quien consiga antes 10 puntos.
+<br>
+Asimismo, para ser la interfaz más amena se ha implementado un menú con información útil para el usuario y varios eventos clásicos en un videojuego que son la posibilidad de pausar la ejecución y reanudarla, y la posibilidad de volver al menú borrando la partida.
+
 
 ## Demostración
 <p align="center">
@@ -27,9 +30,9 @@ Para esta práctica se ha desarrollado mediante processing el videojuego del pon
 </p>
 
 ## Dependencias
-Para poder ejecutar y probar la práctica solamente se necesita el editor de processing y las siguientes dependencias:
-- Librería **sound** para poder reproducir sonidos.Su instalación se encuentra en la documentación de la práctica.
-- Librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
+Para poder ejecutar y probar la práctica solamente se necesita clonar este repositorio y el editor de processing con las siguientes dependencias:
+- La librería **sound** para poder reproducir sonidos.Su instalación se encuentra en la documentación de la práctica.
+- La librería **GifAnimation** para poder reproducir y guardar gifs. Como esta librería no forma parte necesaria para la correcta implementación de la práctica en el código toda la lógica relacionada con ella se encuentra comentada, además de que afecta al rendimiento de la aplicación.En este [enlace](https://github.com/extrapixel/gif-animation) se encuentra la forma de instalarla.
 
 ## Implementación
 Se ha modelado el diseño del juego siguiendo el patrón arquitectónico **MVC**, con la siguiente relación de clases:
@@ -55,13 +58,13 @@ Donde la distribución de clase sería la siguiente:
 
 Los **métodos y figuras** propias de processing que se han usado en el desarrollo son los siguentes: line, stroke, noStroke, ellipse, text, textSize, rect, thread, background y size.
 
-Gracias a que se han usado objetos se ha podido implementar un menú y el evento de pausa de manera relativamente sencilla, para ello se han usado dos variables globales booleanas que controlan el estado de estos objetos. La variable **startGame** reinicia y crea los objetos mediante el método setup y **pause** se encargará de parar la modificación de todos los datos.Ambas variables se cambian mediante eventos de teclado.
+Gracias a que se han usado objetos se ha podido implementar un **menú** y el evento de **pausa** de manera relativamente sencilla, para ello se han usado dos variables globales booleanas que controlan el estado de estos objetos. La variable *startGame* reinicia y crea los objetos mediante el método setup y *pause* se encargará de parar la modificación de todos los datos, ambas variables se cambian mediante eventos de teclado.Existe otra variable global *win* que determina si algunos de los jugadores es el ganador.
 
 ## Eventos
 A la hora de abordar el pong existe una serie de eventos o sucesos que se deben tratar, que son: el choque de la bola con las palas,el control de los eventos de teclado y los sonidos.
 
 ### Choques
-Para controlar el choque se la bola necesita estar en movimiento, y su posición tiene que estar cerca bajo un margen de error de alguno de los palos, de ese modo saltara el evento y cambiará de dirección. Gracias a los dos controladores es posible implementar este comportamiento mediante una serie de condicionales.
+Para controlar el choque la bola necesita estar en movimiento, y su posición tiene que estar cerca bajo un margen de error de alguno de los palos, de ese modo saltara el evento y cambiará de dirección. Gracias a los dos controladores es posible implementar este comportamiento mediante una serie de condiciones.
 ```java
 public void controlStickShock(){
     Stick stickRight = stickController.getStickRight();
@@ -86,7 +89,7 @@ public void controlStickShock(){
 
 
 ### Teclado
-Los eventos de teclado se controlan gracias a método **keyPressed** que controla cuando se pulsa una tecla y el método **keyReleased** que controla cuando se deja de pulsar. Se han selecida una serie de teclas para que sirvan de comunicador de las intenciones del usuario a la aplicación.
+Los eventos de teclado son posibles gracias a método **keyPressed** que controla cuando se pulsa una tecla y el método **keyReleased** que controla cuando se deja de pulsar. Se han seleccionado una serie de teclas para que sirvan de comunicador de las intenciones del usuario a la aplicación.
 
 <table style="width:100%">
   <tr>
