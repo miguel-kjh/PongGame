@@ -17,9 +17,11 @@ Correo: miguel.medina108@alu.ulpgc.es
 6. [Bibliografía](#bibliografía)
 
 ## Introducción
-Para esta práctica se ha desarrollado mediante processing el videojuego pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los fundamentos del juego no han variado de su homólogo original, gana quien consiga antes 10 puntos.Cada vez que algún jugador consiga marcar la pelota se colocará en el centro de la pantalla y tomará una dirección aleatoria por lo que los jugadores deberán estar siempre atentos.
+Para esta práctica se ha desarrollado mediante processing el videojuego pong, que fundamentalmente consiste en dos palas o raquetas que interactúan con una bola que se mueve en todo el escenario. El objetivo del juego es intentar marcar gol en la zona del jugador contrario y el que consiga más puntos gana. Tanto interfaz como los fundamentos del juego no han variado de su homólogo original, gana quien consiga antes 10 puntos.Cada vez que algún jugador consiga marcar la pelota se colocará en el centro de la pantalla y tomará una dirección aleatoria por lo que los jugadores deberán estar siempre atentos, es más para hacer el juego más divertido la velocidad de la bola va aumentando ligeramente.
 <br>
 Asimismo, para ser la interfaz más amena se ha implementado un menú con información útil para el usuario y varios eventos clásicos en un videojuego que son la posibilidad de pausar la ejecución y reanudarla, y la posibilidad de volver al menú borrando la partida.
+
+**Para los usuarios de Windows: antes de poder interactuar con processing es necesario hacer clic en la pantalla de la aplicación una vez la tengas ejecutada**
 
 
 ## Demostración
